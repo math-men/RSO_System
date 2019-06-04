@@ -1,6 +1,6 @@
 # RSO_System
 
-All-in-one package to bootstrap whole app
+All-in-one package to bootstrap whole app. It simplifies the process of starting application on the localhost.
 
 ## Usage
 
