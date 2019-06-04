@@ -14,7 +14,7 @@ Next download subprojects repositories and install their dependencies:
 ./install.sh
 ```
 
-Then start particular services:
+Then start each service:
 ```sh
 ./start-link-service.sh
 ./start-user-service.sh
