@@ -75,7 +75,7 @@ install_frontend_deps() {
 
 	cd RSO_frontend
 	npm install
-	cv ../
+	cd ../
 
 }
 
