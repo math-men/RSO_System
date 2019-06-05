@@ -15,6 +15,26 @@ clone_if_not_exists() {
 	fi
 }
 
+fail_no_program() {
+    echo "Error: $1 is not installed" >&2
+    exit 1
+}
+
+check_env() {
+
+    echo "Checking environment configuration..."
+	if ! [ -x "$(command -v git)" ]; then fail_no_program git; else echo " git: found"; fi
+	if ! [ -x "$(command -v go)" ]; then fail_no_program go; else echo " go: found"; fi
+	if ! [ -x "$(command -v docker)" ]; then fail_no_program docker; else echo " docker: found"; fi
+	if ! [ -x "$(command -v docker-compose)" ]; then fail_no_program docker; else echo " docker: found"; fi
+	if ! [ -x "$(command -v java)" ]; then fail_no_program java; else echo " java: found"; fi
+	if ! [ -x "$(command -v mvn)" ]; then fail_no_program mvn; else echo " mvn: found"; fi
+	if ! [ -x "$(command -v python)" ]; then fail_no_program python; else echo " python: found"; fi
+	if ! [ -x "$(command -v pip)" ]; then fail_no_program pip; else echo " pip: found"; fi
+	if ! [ -x "$(command -v npm)" ]; then fail_no_program npm; else echo " npm: found"; fi
+
+}
+
 download_repositories() {
 
 	echo "####"
@@ -62,7 +82,7 @@ install_usersvc_deps() {
 	mvn dependency:copy-dependencies
 	cd ..
 	pip install -r features-tests/requirements.txt --user
-
+    cd ..
 }
 
 install_frontend_deps() {
@@ -80,6 +100,7 @@ install_frontend_deps() {
 }
 
 echo "Installing..."
+check_env
 download_repositories
 install_linksvc_deps
 install_usersvc_deps
