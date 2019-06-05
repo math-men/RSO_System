@@ -21,3 +21,7 @@ export POSTGRES_PASSWORD=sshort
 export USER_SERVICE_PORT=8081
 export USER_SERVICE_HOST=http://localhost
 export USER_SERVICE_URL=$USER_SERVICE_HOST:$USER_SERVICE_PORT
+
+# Front-end specific variables
+export FRONTEND_HOST=localhost
+export FRONTEND_PORT=8082
